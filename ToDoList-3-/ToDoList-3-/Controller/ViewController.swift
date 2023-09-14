@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         label.textColor = .black
         label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+
         return label
     }()
 
@@ -27,7 +29,18 @@ class ViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
         button.addTarget(self, action: #selector(todoGoButtonTapped), for: .touchUpInside)
+        button.titleLabel?.textAlignment = .center
+        return button
+    }()
 
+    private var completeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+
+        button.setTitle("완료한 일 보기", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+        button.titleLabel?.textAlignment = .center
         return button
     }()
 
@@ -37,13 +50,15 @@ class ViewController: UIViewController {
         // 라벨
         view.addSubview(mainLabel)
         view.addSubview(todoButton)
-
+        view.addSubview(completeButton)
         // 레이아웃 설정
         NSLayoutConstraint.activate([
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             todoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             todoButton.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 200),
+            completeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            completeButton.topAnchor.constraint(equalTo: todoButton.bottomAnchor, constant: 50)
         ])
     }
 
