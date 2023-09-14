@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E77D70CA2AB31A780040770E /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D70C92AB31A780040770E /* TodoViewController.swift */; };
 		E7E89C9C2AB2FA8E0009D81E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E89C9B2AB2FA8E0009D81E /* AppDelegate.swift */; };
 		E7E89C9E2AB2FA8E0009D81E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E89C9D2AB2FA8E0009D81E /* SceneDelegate.swift */; };
 		E7E89CA02AB2FA8E0009D81E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E89C9F2AB2FA8E0009D81E /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E77D70C92AB31A780040770E /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		E7E89C982AB2FA8E0009D81E /* ToDoList-3-.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoList-3-.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E89C9B2AB2FA8E0009D81E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E7E89C9D2AB2FA8E0009D81E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				E7E89C9F2AB2FA8E0009D81E /* ViewController.swift */,
+				E77D70C92AB31A780040770E /* TodoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E77D70CA2AB31A780040770E /* TodoViewController.swift in Sources */,
 				E7E89CA02AB2FA8E0009D81E /* ViewController.swift in Sources */,
 				E7E89C9C2AB2FA8E0009D81E /* AppDelegate.swift in Sources */,
 				E7E89C9E2AB2FA8E0009D81E /* SceneDelegate.swift in Sources */,
