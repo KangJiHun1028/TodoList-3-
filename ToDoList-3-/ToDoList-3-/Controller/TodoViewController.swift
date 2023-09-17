@@ -10,12 +10,19 @@ import UIKit
 class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private var table: UITableView!
     private let cellIdentifier = "cell"
-    private var todoList = [TodoItem]() // 배열에 TodoItem을 저장하는 변수
+    var navigationBar = UINavigationBar()
+    var contentList: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        addNewTodo() // 예시로 새로운 TodoItem을 추가하는 메서드 호출
+        navigationItem.setRightBarButton(UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onClickAddButton(_:))), animated: false)
+    }
+
+    @objc
+    private func onClickAddButton(_ sender: Any?) {
+        contentList.append("\(contentList.count + 1)")
+        table.reloadData()
     }
 
     private func setupTableView() {
@@ -26,21 +33,14 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.addSubview(table)
     }
 
-    private func addNewTodo() {
-        let newTodo = TodoItem(title: "New Task") // 새로운 TodoItem 생성
-        todoList.append(newTodo) // todoList 배열에 추가
-
-        table.reloadData() // 테이블 뷰 리로드
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoList.count
+        return contentList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
 
-        cell.textLabel?.text = todoList[indexPath.row].title
+        cell.textLabel?.text = contentList[indexPath.row]
 
         return cell
     }
