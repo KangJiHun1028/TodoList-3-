@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E76E12D12AB8276F00F36CAC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E76E12CF2AB8276F00F36CAC /* Model.xcdatamodeld */; };
 		E76E12D32AB829E100F36CAC /* ProfileDesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E12D22AB829E100F36CAC /* ProfileDesignViewController.swift */; };
+		E76E12D52AB82F9400F36CAC /* TodoDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E12D42AB82F9400F36CAC /* TodoDoneViewController.swift */; };
 		E77D70CA2AB31A780040770E /* TodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77D70C92AB31A780040770E /* TodoViewController.swift */; };
 		E77EEB912AB3828F00D53DDA /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77EEB902AB3828F00D53DDA /* TodoCell.swift */; };
 		E77EEB932AB3833900D53DDA /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77EEB922AB3833900D53DDA /* TodoItem.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		E76E12D02AB8276F00F36CAC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E76E12D22AB829E100F36CAC /* ProfileDesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDesignViewController.swift; sourceTree = "<group>"; };
+		E76E12D42AB82F9400F36CAC /* TodoDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneViewController.swift; sourceTree = "<group>"; };
 		E77D70C92AB31A780040770E /* TodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewController.swift; sourceTree = "<group>"; };
 		E77EEB902AB3828F00D53DDA /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		E77EEB922AB3833900D53DDA /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				E7E89C9F2AB2FA8E0009D81E /* ViewController.swift */,
 				E77D70C92AB31A780040770E /* TodoViewController.swift */,
+				E76E12D42AB82F9400F36CAC /* TodoDoneViewController.swift */,
 				E76E12D22AB829E100F36CAC /* ProfileDesignViewController.swift */,
 			);
 			path = Controller;
@@ -265,6 +268,7 @@
 				E76E12D32AB829E100F36CAC /* ProfileDesignViewController.swift in Sources */,
 				E7E89C9C2AB2FA8E0009D81E /* AppDelegate.swift in Sources */,
 				E76E12D12AB8276F00F36CAC /* Model.xcdatamodeld in Sources */,
+				E76E12D52AB82F9400F36CAC /* TodoDoneViewController.swift in Sources */,
 				E77EEB912AB3828F00D53DDA /* TodoCell.swift in Sources */,
 				E77EEB932AB3833900D53DDA /* TodoItem.swift in Sources */,
 				E7E89C9E2AB2FA8E0009D81E /* SceneDelegate.swift in Sources */,

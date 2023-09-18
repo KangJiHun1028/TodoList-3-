@@ -41,6 +41,7 @@ class ViewController: UIViewController {
         button.setTitle("완료한 일 보기", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Helvetica", size: 17)
+        button.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         button.titleLabel?.textAlignment = .center
         return button
     }()
@@ -87,5 +88,10 @@ class ViewController: UIViewController {
     @objc private func profileButtonTapped() {
         let profileDesignViewController = ProfileDesignViewController()
         navigationController?.pushViewController(profileDesignViewController, animated: true)
+    }
+
+    @objc private func doneButtonTapped() {
+        let todoDoneViewController = TodoDoneViewController()
+        navigationController?.pushViewController(todoDoneViewController, animated: true)
     }
 }
