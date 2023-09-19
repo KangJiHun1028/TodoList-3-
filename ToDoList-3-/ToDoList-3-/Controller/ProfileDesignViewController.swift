@@ -77,6 +77,28 @@ class ProfileDesignViewController: UIViewController {
         return label
     }()
 
+    lazy var userName: UILabel = {
+        let label = UILabel()
+        label.text = "강지훈"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
+    lazy var userAffiliation: UILabel = {
+        let label = UILabel()
+        label.text = "iOS Developer🍎"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        return label
+    }()
+    
+    lazy var userAddress: UILabel = {
+        let label = UILabel()
+        label.text = "https://minsakr10.tistory.com/"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.textColor = UIColor.blue
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -120,6 +142,15 @@ class ProfileDesignViewController: UIViewController {
         return stack
     }()
 
+    lazy var userInformationStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [userName, userAffiliation, userAddress])
+        stack.axis = .vertical
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        stack.spacing = 2
+        return stack
+    }()
+
     func settingUI() {
         view.backgroundColor = .systemBackground
             
@@ -127,10 +158,12 @@ class ProfileDesignViewController: UIViewController {
         view.addSubview(menuButton)
         view.addSubview(userImage)
         view.addSubview(profileStackView)
+        view.addSubview(userInformationStackView)
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         userImage.translatesAutoresizingMaskIntoConstraints = false
         profileStackView.translatesAutoresizingMaskIntoConstraints = false
+        userInformationStackView.translatesAutoresizingMaskIntoConstraints = false
     }
         
     func layoutView() {
@@ -140,13 +173,18 @@ class ProfileDesignViewController: UIViewController {
                 
             menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            
             userImage.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 14),
             userImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 14),
             userImage.widthAnchor.constraint(equalToConstant: 100),
             userImage.heightAnchor.constraint(equalToConstant: 100),
+            
             profileStackView.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 45),
             profileStackView.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 15),
             profileStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -28),
+            
+            userInformationStackView.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 20),
+            userInformationStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
 }
