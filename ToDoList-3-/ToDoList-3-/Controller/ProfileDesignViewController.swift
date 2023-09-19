@@ -7,6 +7,7 @@
 
 import UIKit
 class ProfileDesignViewController: UIViewController {
+    var isFollowing: Bool = false
     lazy var mainLabel: UILabel = {
         let label = UILabel()
         label.text = "nabaecamp"
@@ -99,6 +100,49 @@ class ProfileDesignViewController: UIViewController {
         return label
     }()
 
+    lazy var followButton: UIButton = {
+        let button = UIButton(type: .system)
+
+        button.addTarget(self, action: #selector(followButtonTapped), for: .touchUpInside)
+        button.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1.5
+        button.layer.borderColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1).cgColor
+        let desiredWidth: CGFloat = 146
+        let desiredHeight: CGFloat = 30
+        button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
+        button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
+        return button
+    }()
+    
+    lazy var messageButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Message", for: .normal)
+        button.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1.5
+        button.layer.borderColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1).cgColor
+        let desiredWidth: CGFloat = 145
+        let desiredHeight: CGFloat = 30
+        button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
+        button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
+        return button
+    }()
+    
+    lazy var moreButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1.5
+        button.layer.borderColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1).cgColor
+        let desiredWidth: CGFloat = 30
+        let desiredHeight: CGFloat = 30
+        button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
+        button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
             
@@ -150,7 +194,16 @@ class ProfileDesignViewController: UIViewController {
         stack.spacing = 2
         return stack
     }()
-
+    
+    lazy var partButtonStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [followButton, messageButton, moreButton])
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.alignment = .fill
+        stack.spacing = 8
+        return stack
+    }()
+ 
     func settingUI() {
         view.backgroundColor = .systemBackground
             
@@ -159,18 +212,38 @@ class ProfileDesignViewController: UIViewController {
         view.addSubview(userImage)
         view.addSubview(profileStackView)
         view.addSubview(userInformationStackView)
+        view.addSubview(partButtonStackView)
+        
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         userImage.translatesAutoresizingMaskIntoConstraints = false
         profileStackView.translatesAutoresizingMaskIntoConstraints = false
         userInformationStackView.translatesAutoresizingMaskIntoConstraints = false
+        partButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        isFollowing = true
+              
+        updateFollowButtonText()
+    }
+           
+    @objc func followButtonTapped() {
+        isFollowing.toggle()
+        updateFollowButtonText()
+    }
+           
+    func updateFollowButtonText() {
+        let title = isFollowing ? "Follow" : "UnFollow"
+        let color = isFollowing ? UIColor.black : UIColor.black
+        let backgroundColor = isFollowing ? UIColor.systemBlue : UIColor.white
+        followButton.setTitle(title, for: .normal)
+        followButton.setTitleColor(color, for: .normal)
+        followButton.backgroundColor = backgroundColor
     }
         
     func layoutView() {
         NSLayoutConstraint.activate([
             mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                
+            
             menuButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             menuButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
             
@@ -185,6 +258,11 @@ class ProfileDesignViewController: UIViewController {
             
             userInformationStackView.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 20),
             userInformationStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            
+            partButtonStackView.topAnchor.constraint(equalTo: userInformationStackView.bottomAnchor, constant: 10),
+            partButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            partButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            
         ])
     }
 }
