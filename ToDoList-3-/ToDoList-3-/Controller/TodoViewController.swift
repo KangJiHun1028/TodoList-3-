@@ -6,9 +6,12 @@
 //  Created by t2023-m0053 on 2023/09/14.
 //
 
+import CoreData
 import UIKit
 
 class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var selectedTask: Task?
+    var tasks: [Task] = []
     private var table: UITableView!
     private let cellIdentifier = "cell"
     var navigationBar = UINavigationBar()
@@ -18,8 +21,22 @@ class TodoViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         setupTableView()
         navigationItem.setRightBarButton(UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(onClickAddButton(_:))), animated: false)
+        fetchTasks()
     }
-    
+
+    func fetchTasks() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let request: NSFetchRequest<Task> = Task.fetchRequest()
+        do {
+            tasks = try context.fetch(request)
+            table.reloadData()
+        } catch {
+            print("Failed to fetch tasks:", error)
+        }
+    }
+
     @objc
     private func onClickAddButton(_ sender: Any?) {
         let alertController = UIAlertController(title: "할 일 정하기", message: "할 일 및 세션을 추가하세요", preferredStyle: .alert)
