@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E738947F2AB9DD400016090C /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E738947E2AB9DD400016090C /* CustomCollectionViewCell.swift */; };
 		E76E12D32AB829E100F36CAC /* ProfileDesignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E12D22AB829E100F36CAC /* ProfileDesignViewController.swift */; };
 		E76E12D52AB82F9400F36CAC /* TodoDoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76E12D42AB82F9400F36CAC /* TodoDoneViewController.swift */; };
 		E76E12DB2AB8332700F36CAC /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E76E12D92AB8332700F36CAC /* TodoList.xcdatamodeld */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E738947E2AB9DD400016090C /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		E76E12D22AB829E100F36CAC /* ProfileDesignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDesignViewController.swift; sourceTree = "<group>"; };
 		E76E12D42AB82F9400F36CAC /* TodoDoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDoneViewController.swift; sourceTree = "<group>"; };
 		E76E12DA2AB8332700F36CAC /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			children = (
 				E77EEB902AB3828F00D53DDA /* TodoCell.swift */,
 				E77EEB922AB3833900D53DDA /* TodoItem.swift */,
+				E738947E2AB9DD400016090C /* CustomCollectionViewCell.swift */,
 				E76E12D62AB832CE00F36CAC /* Model */,
 			);
 			path = Cell;
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E77D70CA2AB31A780040770E /* TodoViewController.swift in Sources */,
+				E738947F2AB9DD400016090C /* CustomCollectionViewCell.swift in Sources */,
 				E7E89CA02AB2FA8E0009D81E /* ViewController.swift in Sources */,
 				E76E12D32AB829E100F36CAC /* ProfileDesignViewController.swift in Sources */,
 				E7E89C9C2AB2FA8E0009D81E /* AppDelegate.swift in Sources */,
