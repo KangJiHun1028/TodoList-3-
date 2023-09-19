@@ -15,13 +15,13 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
     // MARK: - Properties
 
     var isFollowing: Bool = false
-    lazy var collectionViewData: [UIImage] = [#imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "Image 3"), #imageLiteral(resourceName: "Image 2"), #imageLiteral(resourceName: "Image 4"), #imageLiteral(resourceName: "Image 5"), #imageLiteral(resourceName: "lmage 6"), #imageLiteral(resourceName: "Image 7")]
+    lazy var collectionViewData: [UIImage] = [#imageLiteral(resourceName: "Image"), #imageLiteral(resourceName: "Image 3"), #imageLiteral(resourceName: "Image 2"), #imageLiteral(resourceName: "Image 4"), #imageLiteral(resourceName: "Image 5"), #imageLiteral(resourceName: "lmage 6"), #imageLiteral(resourceName: "Image 7"), #imageLiteral(resourceName: "Image 7"), #imageLiteral(resourceName: "Image 7"), #imageLiteral(resourceName: "Image 7"), #imageLiteral(resourceName: "Image 7")]
 
     // MARK: - UI Elements
 
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
         return imageView
     }()
@@ -247,7 +247,7 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
     }()
 
     // Create a UICollectionView
-    var collectionView: UICollectionView = {
+    lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         flowLayout.scrollDirection = .vertical
@@ -255,23 +255,23 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
     }()
 
     // addImageToCollectionViewData 함수를 정의
-    func addImageToCollectionViewData(image: UIImage?) {
-        if let image = image {
-            collectionViewData.append(image)
-            collectionView.reloadData() // 새 데이터로 컬렉션 뷰를 다시 로드
-        }
-    }
+//    func addImageToCollectionViewData(image: UIImage?) {
+//        if let image = image {
+//            collectionViewData.append(image)
+//            collectionView.reloadData() // 새 데이터로 컬렉션 뷰를 다시 로드
+//        }
+//    }
 
     // MARK: - UI Setup Functions
 
     func settingUI() {
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .vertical
-        flowLayout.itemSize = CGSize(width: 124, height: 124) // 셀 크기 설정
-        flowLayout.minimumInteritemSpacing = 2 // 가로 간격 설정
-        flowLayout.minimumLineSpacing = 2 // 세로 간격 설정
-        // Create a UICollectionView
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+//        let flowLayout = UICollectionViewFlowLayout()
+//        flowLayout.scrollDirection = .vertical
+//        flowLayout.itemSize = CGSize(width: 124, height: 124) // 셀 크기 설정
+//        flowLayout.minimumInteritemSpacing = 2 // 가로 간격 설정
+//        flowLayout.minimumLineSpacing = 2 // 세로 간격 설정
+//        // Create a UICollectionView
+//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -367,10 +367,10 @@ extension ProfileDesignViewController: UICollectionViewDataSource {
 
         // 이미지를 컬렉션 뷰 셀에 설정
         let imageView = UIImageView(image: collectionViewData[indexPath.item])
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        cell.contentView.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.contentMode = .scaleAspectFill
+//        imageView.clipsToBounds = true
+//        cell.contentView.addSubview(imageView)
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         cell.imageView.image = collectionViewData[indexPath.item]
 
         NSLayoutConstraint.activate([
@@ -381,5 +381,21 @@ extension ProfileDesignViewController: UICollectionViewDataSource {
         ])
 
         return cell
+    }
+}
+
+extension ProfileDesignViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 4) / 3
+        let size = CGSize(width: width, height: width)
+        return size
     }
 }
