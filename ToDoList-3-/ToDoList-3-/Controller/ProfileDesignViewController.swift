@@ -108,7 +108,7 @@ class ProfileDesignViewController: UIViewController {
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1.5
         button.layer.borderColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1).cgColor
-        let desiredWidth: CGFloat = 146
+        let desiredWidth: CGFloat = 160
         let desiredHeight: CGFloat = 30
         button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
@@ -118,13 +118,12 @@ class ProfileDesignViewController: UIViewController {
     lazy var messageButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Message", for: .normal)
+        button.tintColor = .black
         button.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1.5
         button.layer.borderColor = UIColor(red: 0.855, green: 0.855, blue: 0.855, alpha: 1).cgColor
-        let desiredWidth: CGFloat = 145
         let desiredHeight: CGFloat = 30
-        button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
         return button
     }()
@@ -132,6 +131,7 @@ class ProfileDesignViewController: UIViewController {
     lazy var moreButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        button.tintColor = .black
         button.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
         button.layer.cornerRadius = 4
         button.layer.borderWidth = 1.5
@@ -140,6 +140,22 @@ class ProfileDesignViewController: UIViewController {
         let desiredHeight: CGFloat = 30
         button.widthAnchor.constraint(equalToConstant: desiredWidth).isActive = true
         button.heightAnchor.constraint(equalToConstant: desiredHeight).isActive = true
+        return button
+    }()
+    
+    lazy var dividerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .black
+        button.setImage(UIImage(systemName: "squareshape.split.3x3"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 22.5, height: 22.5)
+        return button
+    }()
+
+    lazy var personButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .black
+        button.setImage(UIImage(systemName: "person.crop.circle.fill"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 22.5, height: 22.5)
         return button
     }()
 
@@ -204,6 +220,14 @@ class ProfileDesignViewController: UIViewController {
         return stack
     }()
  
+    lazy var dividerButtonStackView: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [dividerButton, personButton])
+        stack.axis = .horizontal // 수평 스택 뷰로 설정
+        stack.distribution = .fillEqually
+        stack.alignment = .fill
+        return stack
+    }()
+
     func settingUI() {
         view.backgroundColor = .systemBackground
             
@@ -213,13 +237,15 @@ class ProfileDesignViewController: UIViewController {
         view.addSubview(profileStackView)
         view.addSubview(userInformationStackView)
         view.addSubview(partButtonStackView)
-        
+        view.addSubview(dividerButtonStackView)
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         userImage.translatesAutoresizingMaskIntoConstraints = false
         profileStackView.translatesAutoresizingMaskIntoConstraints = false
         userInformationStackView.translatesAutoresizingMaskIntoConstraints = false
         partButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+        dividerButtonStackView.translatesAutoresizingMaskIntoConstraints = false
+
         isFollowing = true
               
         updateFollowButtonText()
@@ -240,6 +266,8 @@ class ProfileDesignViewController: UIViewController {
     }
         
     func layoutView() {
+        let safeArea = view.safeAreaLayoutGuide
+
         NSLayoutConstraint.activate([
             mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -263,6 +291,11 @@ class ProfileDesignViewController: UIViewController {
             partButtonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             partButtonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
+            dividerButtonStackView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            dividerButtonStackView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            dividerButtonStackView.heightAnchor.constraint(equalToConstant: 40),
+            dividerButtonStackView.topAnchor.constraint(equalTo: partButtonStackView.bottomAnchor, constant: 10),
+
         ])
     }
 }
