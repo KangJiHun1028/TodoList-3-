@@ -177,6 +177,21 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         return button
     }()
 
+    lazy var buttomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.addSubview(bottomButton)
+        return view
+    }()
+
+    lazy var bottomButton: UIButton = {
+        var button = UIButton(type: .system)
+        button.tintColor = .black
+        button.setImage(UIImage(systemName: "person.fill"), for: .normal)
+        button.frame = CGRect(x: 0, y: 0, width: 22.5, height: 22.75)
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -246,7 +261,7 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         return stack
     }()
 
-    // Create a UICollectionView
+    // UICollectionView
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -254,29 +269,15 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         return collView
     }()
 
-    // addImageToCollectionViewData 함수를 정의
-//    func addImageToCollectionViewData(image: UIImage?) {
-//        if let image = image {
-//            collectionViewData.append(image)
-//            collectionView.reloadData() // 새 데이터로 컬렉션 뷰를 다시 로드
-//        }
-//    }
-
     // MARK: - UI Setup Functions
 
     func settingUI() {
-//        let flowLayout = UICollectionViewFlowLayout()
-//        flowLayout.scrollDirection = .vertical
-//        flowLayout.itemSize = CGSize(width: 124, height: 124) // 셀 크기 설정
-//        flowLayout.minimumInteritemSpacing = 2 // 가로 간격 설정
-//        flowLayout.minimumLineSpacing = 2 // 세로 간격 설정
-//        // Create a UICollectionView
-//        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .white
         collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+
         view.backgroundColor = .systemBackground
         view.addSubview(mainLabel)
         view.addSubview(menuButton)
@@ -286,6 +287,8 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         view.addSubview(partButtonStackView)
         view.addSubview(dividerButtonStackView)
         view.addSubview(collectionView)
+        view.addSubview(buttomView)
+        view.addSubview(bottomButton)
 
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         menuButton.translatesAutoresizingMaskIntoConstraints = false
@@ -295,6 +298,8 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         partButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         dividerButtonStackView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        buttomView.translatesAutoresizingMaskIntoConstraints = false
+        bottomButton.translatesAutoresizingMaskIntoConstraints = false
 
         isFollowing = true
 
@@ -351,6 +356,13 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
+            bottomButton.topAnchor.constraint(equalTo: buttomView.topAnchor, constant: 10),
+            bottomButton.centerXAnchor.constraint(equalTo: buttomView.centerXAnchor),
+
+            buttomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            buttomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            buttomView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            buttomView.heightAnchor.constraint(equalToConstant: 80),
         ])
     }
 }
@@ -367,18 +379,7 @@ extension ProfileDesignViewController: UICollectionViewDataSource {
 
         // 이미지를 컬렉션 뷰 셀에 설정
         let imageView = UIImageView(image: collectionViewData[indexPath.item])
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.clipsToBounds = true
-//        cell.contentView.addSubview(imageView)
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
         cell.imageView.image = collectionViewData[indexPath.item]
-
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor),
-        ])
 
         return cell
     }
