@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TodoCell: UITableViewCell {
     var title: UILabel = UILabel()

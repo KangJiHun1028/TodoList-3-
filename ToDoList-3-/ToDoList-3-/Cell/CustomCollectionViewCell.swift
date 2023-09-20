@@ -5,6 +5,7 @@
 //  Created by t2023-m0053 on 2023/09/19.
 //
 
+import CoreData
 import UIKit
 
 class CustomCollectionViewCell: UICollectionViewCell {

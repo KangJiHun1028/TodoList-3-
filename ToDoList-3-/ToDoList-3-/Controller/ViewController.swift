@@ -5,8 +5,8 @@
 //  Created by t2023-m0053 on 2023/09/14.
 //
 
+import CoreData
 import UIKit
-
 class ViewController: UIViewController {
     // 상단 라벨
     var mainLabel: UILabel = {

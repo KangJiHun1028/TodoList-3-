@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreData
+
 class TodoDoneViewController: UIViewController {
     var taskDetail: String?
     // Add contentList if you want to use it in TodoDoneViewController

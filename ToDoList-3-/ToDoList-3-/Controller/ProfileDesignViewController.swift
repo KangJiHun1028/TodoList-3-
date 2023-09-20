@@ -8,6 +8,7 @@
 // MARK: - Imports
 
 import UIKit
+import CoreData
 
 // MARK: - ProfileDesignViewController Class
 
@@ -199,6 +200,8 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         layoutView()
     }
 
+    // MARK: - UIStackView
+
     lazy var postStackView: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [postNumber, post])
         stack.axis = .vertical
@@ -261,7 +264,8 @@ class ProfileDesignViewController: UIViewController, UICollectionViewDelegate {
         return stack
     }()
 
-    // UICollectionView
+    // MARK: - UICollectionView
+
     lazy var collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let collView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
