@@ -5,8 +5,8 @@
 //  Created by t2023-m0053 on 2023/09/15.
 //
 
-import Foundation
 import CoreData
+import Foundation
 
 struct TodoItem {
     var title: String
