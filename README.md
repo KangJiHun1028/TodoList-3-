@@ -27,4 +27,4 @@ TodoDoneViewController
 
 ProfileDesignViewController
 
--인스타 프로필 페이지 클론 코딩으로, 컬렉션 뷰를 스크롤 할 수 있고, 버튼 클릭이 가능하다.
+- 인스타 프로필 페이지 클론 코딩으로, 컬렉션 뷰를 스크롤 할 수 있고, 버튼 클릭이 가능하다.
