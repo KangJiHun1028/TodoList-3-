@@ -42,8 +42,6 @@ ProfileDesignViewController
 
 #UI 구성
 
----
-
 
 <img src="https://github.com/KangJiHun1028/TodoList-3-/assets/136081642/fe4f4773-5bd3-437b-8949-ff51341a45d6" width="200" height="400"/>
 <img src="https://github.com/KangJiHun1028/TodoList-3-/assets/136081642/700f397f-a51c-45c4-ac57-48105e81216c" width="200" height="400"/>
