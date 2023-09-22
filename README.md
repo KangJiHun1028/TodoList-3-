@@ -22,4 +22,4 @@ TodoViewController
 
 TodoDoneViewController
 
--전달된 데이터를 테이블 뷰 셀을 통해 확인할 수 있다.
+- 전달된 데이터를 테이블 뷰 셀을 통해 확인할 수 있다.
