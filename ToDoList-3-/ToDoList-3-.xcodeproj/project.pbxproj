@@ -111,7 +111,6 @@
 				E77EEB922AB3833900D53DDA /* TodoItem.swift */,
 				E738947E2AB9DD400016090C /* CustomCollectionViewCell.swift */,
 				E76E12D62AB832CE00F36CAC /* Model */,
-				E7F03E3A2ABC56C500A6C3B9 /* Manager */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -146,13 +145,6 @@
 				E7E89CA92AB2FA8F0009D81E /* Info.plist */,
 			);
 			path = "ToDoList-3-";
-			sourceTree = "<group>";
-		};
-		E7F03E3A2ABC56C500A6C3B9 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
