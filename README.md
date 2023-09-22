@@ -34,5 +34,5 @@ ProfileDesignViewController
 
 
 #앱 구성
-<img src="![MVVM](https://github.com/KangJiHun1028/TodoList-3-/assets/136081642/eba29362-9edd-4354-ab7f-b5ddd4c8f2c2)" width="500" height="450"/>
+<img src="https://github.com/KangJiHun1028/TodoList-3-/assets/136081642/eba29362-9edd-4354-ab7f-b5ddd4c8f2c2" width="500" height="450"/>
 
